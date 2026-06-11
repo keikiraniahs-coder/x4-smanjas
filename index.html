@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galeri kenangan kelas X-4 SMAN 1 Jasinga angkatan 2026.">
+  <meta name="theme-color" content="#071a2d">
+  <title>X-4 SMAN 1 Jasinga | Angkatan 2026</title>
+  <style>
+    :root {
+      --navy: #06192b;
+      --navy-soft: #0b2741;
+      --panel: rgba(9, 29, 49, 0.84);
+      --line: rgba(164, 211, 245, 0.24);
+      --blue: #4db5ff;
+      --blue-bright: #79caff;
+      --text: #f5f9ff;
+      --muted: #b4c2d2;
+      --red: #f15c67;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      min-width: 320px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(31, 121, 187, 0.18), transparent 32rem),
+        linear-gradient(180deg, #07192b 0%, #08233a 52%, #06192b 100%);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.menu-open,
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      border-bottom: 1px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      border-color: var(--line);
+      background: rgba(5, 20, 35, 0.9);
+      box-shadow: 0 10px 34px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 28px 0 24px;
+      color: #e6edf5;
+      font-size: 0.94rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 16px;
+      left: 0;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--blue-bright);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: white;
+      background: rgba(9, 29, 49, 0.76);
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 2px;
+      margin: 5px 0;
+      border-radius: 4px;
+      background: currentColor;
+    }
+
+    .hero {
+      --hero-shift: 0px;
+      position: relative;
+      min-height: 760px;
+      display: grid;
+      align-items: center;
+      padding: 142px 0 82px;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      background: url("assets/images/class-main-1.jpeg") center 38% / cover no-repeat;
+      transform: scale(1.06) translateY(var(--hero-shift));
+      animation: hero-zoom 12s ease-out both;
+      will-change: transform;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(3, 15, 27, 0.93) 0%, rgba(4, 20, 34, 0.7) 52%, rgba(3, 16, 28, 0.82) 100%),
+        linear-gradient(180deg, rgba(6, 25, 43, 0.25) 60%, #071a2d 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-glow span {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background: rgba(111, 204, 255, 0.75);
+      box-shadow: 0 0 18px rgba(77, 181, 255, 0.65);
+      opacity: 0;
+      animation: float-light var(--duration) ease-in-out var(--delay) infinite;
+    }
+
+    .hero-glow span:nth-child(1) { --size: 5px; --duration: 7s; --delay: 0s; left: 8%; top: 70%; }
+    .hero-glow span:nth-child(2) { --size: 3px; --duration: 9s; --delay: 1s; left: 21%; top: 42%; }
+    .hero-glow span:nth-child(3) { --size: 6px; --duration: 8s; --delay: 2.4s; left: 45%; top: 76%; }
+    .hero-glow span:nth-child(4) { --size: 4px; --duration: 10s; --delay: 0.7s; left: 66%; top: 35%; }
+    .hero-glow span:nth-child(5) { --size: 3px; --duration: 8s; --delay: 3s; left: 83%; top: 72%; }
+    .hero-glow span:nth-child(6) { --size: 5px; --duration: 11s; --delay: 1.8s; left: 92%; top: 45%; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(310px, 0.72fr);
+      align-items: center;
+      gap: 80px;
+    }
+
+    .eyebrow {
+      margin-bottom: 5px;
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .hero h1 {
+      display: flex;
+      flex-direction: column;
+      margin-left: -7px;
+      font-size: clamp(6.5rem, 15vw, 11rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 0.78;
+    }
+
+    .hero h1 span {
+      color: transparent;
+      background: linear-gradient(150deg, #89dbff 12%, #1790ef 62%, #236cff 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      filter: drop-shadow(0 8px 20px rgba(17, 116, 224, 0.24));
+      background-size: 200% auto;
+      animation: title-shine 5s linear infinite;
+    }
+
+    .hero-content.visible .eyebrow {
+      animation: cinematic-in 0.7s 0.08s both;
+    }
+
+    .hero-content.visible h1 {
+      animation: cinematic-in 0.85s 0.18s both;
+    }
+
+    .hero-content.visible .school-name {
+      animation: cinematic-in-rotated 0.85s 0.32s both;
+    }
+
+    .hero-content.visible .hero-copy {
+      animation: cinematic-in 0.7s 0.46s both;
+    }
+
+    .hero-content.visible .hero-actions {
+      animation: cinematic-in 0.7s 0.58s both;
+    }
+
+    .teacher-card.visible {
+      animation: teacher-arrive 0.95s 0.35s both;
+    }
+
+    .school-name {
+      margin: 20px 0 10px;
+      font-family: "Segoe Script", "Brush Script MT", cursive;
+      font-size: clamp(2.1rem, 4.7vw, 3.7rem);
+      line-height: 1.08;
+      transform: rotate(-2deg);
+    }
+
+    .hero-copy {
+      max-width: 520px;
+      color: #c5cfda;
+      font-size: 1.16rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid rgba(176, 216, 246, 0.45);
+      border-radius: 12px;
+      font-weight: 650;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      border-color: #2b94ee;
+      background: linear-gradient(135deg, #248fea, #1267da);
+      box-shadow: 0 12px 30px rgba(25, 117, 226, 0.28);
+    }
+
+    .button-secondary {
+      background: rgba(8, 27, 46, 0.65);
+      backdrop-filter: blur(8px);
+    }
+
+    .teacher-card {
+      position: relative;
+      padding: 0 28px 28px;
+      border: 1px solid rgba(172, 215, 247, 0.38);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(11, 34, 57, 0.88), rgba(9, 24, 43, 0.96));
+      box-shadow: var(--shadow);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .teacher-photo {
+      width: 170px;
+      aspect-ratio: 1;
+      margin: -54px auto 18px;
+      border: 5px solid rgba(77, 181, 255, 0.2);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 22%;
+      background: #248fea;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.32);
+    }
+
+    .teacher-label,
+    .section-kicker {
+      color: var(--blue-bright);
+      font-size: 0.79rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .teacher-card h2 {
+      margin: 2px 0 8px;
+      font-size: 1.75rem;
+    }
+
+    .teacher-card p {
+      color: #c4cfda;
+      font-size: 0.93rem;
+      font-style: italic;
+    }
+
+    .quote-mark {
+      height: 42px;
+      color: rgba(187, 215, 236, 0.28);
+      font-family: Georgia, serif;
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    .quote-line {
+      width: 72px;
+      height: 2px;
+      margin: 0 auto;
+      background: var(--blue);
+    }
+
+    .values-wrap {
+      position: relative;
+      z-index: 4;
+      margin-top: -42px;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(6, 24, 42, 0.86);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .value-item {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 12px;
+      min-height: 112px;
+      padding: 20px 24px;
+    }
+
+    .value-item + .value-item {
+      border-left: 1px solid var(--line);
+    }
+
+    .value-icon {
+      color: var(--blue-bright);
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .value-item strong {
+      display: block;
+      margin-bottom: 1px;
+      font-size: 0.92rem;
+    }
+
+    .value-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 42px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin-top: 5px;
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+    }
+
+    .heading-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 12px;
+      color: var(--blue);
+    }
+
+    .heading-rule::before,
+    .heading-rule::after {
+      content: "";
+      width: 88px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(121, 202, 255, 0.6));
+    }
+
+    .heading-rule::after {
+      background: linear-gradient(90deg, rgba(121, 202, 255, 0.6), transparent);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-card {
+      --card-rotate: 0deg;
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(167, 207, 236, 0.25);
+      border-radius: 15px;
+      background: #0a233a;
+      box-shadow: 0 13px 30px rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      transform: rotate(var(--card-rotate));
+      transition: transform 0.32s cubic-bezier(.2,.8,.2,1), border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-card:nth-child(3n + 1) { --card-rotate: -1deg; }
+    .gallery-card:nth-child(3n + 2) { --card-rotate: 0.7deg; }
+    .gallery-card:nth-child(3n) { --card-rotate: -0.45deg; }
+
+    .gallery-card:hover {
+      transform: translateY(-9px) rotate(0deg) scale(1.015);
+      border-color: rgba(121, 202, 255, 0.62);
+      box-shadow: 0 20px 38px rgba(0, 0, 0, 0.28);
+    }
+
+    .gallery-card figure {
+      height: 265px;
+      overflow: hidden;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-card figcaption {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 55px;
+      padding: 11px 16px;
+      color: #f3f7fb;
+      font-size: 0.9rem;
+    }
+
+    .caption-icon {
+      color: var(--blue-bright);
+      font-size: 1.15rem;
+    }
+
+    .memory-quote {
+      max-width: 790px;
+      margin: 58px auto 0;
+      color: #becbd8;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-style: italic;
+      text-align: center;
+    }
+
+    .memory-quote .word {
+      display: inline-block;
+      margin-right: 0.22em;
+      opacity: 0;
+      filter: blur(7px);
+      transform: translateY(12px);
+      transition:
+        opacity 0.55s ease,
+        filter 0.55s ease,
+        transform 0.55s ease;
+      transition-delay: calc(var(--word-index) * 45ms);
+    }
+
+    .memory-quote.visible .word {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+
+    .memory-quote::before,
+    .memory-quote::after {
+      color: var(--blue);
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 0;
+      vertical-align: -0.35em;
+    }
+
+    .memory-quote::before {
+      content: "“";
+      margin-right: 14px;
+    }
+
+    .memory-quote::after {
+      content: "”";
+      margin-left: 14px;
+    }
+
+    .story {
+      border-block: 1px solid rgba(159, 202, 234, 0.12);
+      background:
+        linear-gradient(rgba(4, 22, 38, 0.84), rgba(4, 22, 38, 0.91)),
+        url("assets/images/traditional-day.jpeg") center / cover fixed;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .story-collage {
+      position: relative;
+      min-height: 470px;
+    }
+
+    .story-collage img {
+      position: absolute;
+      border: 5px solid rgba(224, 241, 254, 0.9);
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+      transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .story-collage img:first-child {
+      top: 0;
+      left: 0;
+      width: 72%;
+      height: 370px;
+      transform: rotate(-2.4deg);
+    }
+
+    .story-collage img:last-child {
+      right: 0;
+      bottom: 0;
+      width: 56%;
+      height: 275px;
+      transform: rotate(3deg);
+    }
+
+    .story-collage:hover img:first-child {
+      transform: rotate(-1deg) translate(-4px, -5px);
+    }
+
+    .story-collage:hover img:last-child {
+      transform: rotate(1.2deg) translate(5px, 4px);
+    }
+
+    .story-copy h2 {
+      margin: 7px 0 18px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+    }
+
+    .story-copy p {
+      margin-bottom: 16px;
+      color: var(--muted);
+    }
+
+    .story-signature {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--blue-bright);
+      font-family: "Segoe Script", "Brush Script MT", cursive;
+      font-size: 1.7rem;
+      transform: rotate(-2deg);
+    }
+
+    .site-footer {
+      padding: 35px 0;
+      background: rgba(4, 18, 31, 0.7);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      min-height: 58px;
+      padding: 0 30px;
+      color: var(--muted);
+    }
+
+    .footer-item + .footer-item {
+      border-left: 1px solid var(--line);
+    }
+
+    .footer-item:first-child {
+      justify-content: flex-start;
+    }
+
+    .footer-item:last-child {
+      justify-content: flex-end;
+    }
+
+    .footer-item img {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .footer-item strong {
+      display: block;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .footer-symbol {
+      color: var(--red);
+      font-size: 1.7rem;
+    }
+
+    .lightbox {
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 74px 22px 28px;
+      background: rgba(2, 10, 18, 0.94);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s ease;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox img {
+      max-width: min(1100px, 94vw);
+      max-height: 80vh;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      object-fit: contain;
+    }
+
+    .lightbox p {
+      margin-top: 16px;
+      color: #d9e5f0;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .music-player {
+      position: fixed;
+      z-index: 60;
+      right: 22px;
+      bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: min(355px, calc(100vw - 28px));
+      padding: 12px;
+      border: 1px solid rgba(121, 202, 255, 0.3);
+      border-radius: 18px;
+      background: rgba(5, 22, 38, 0.94);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(16px);
+      transition: transform 0.25s ease;
+    }
+
+    .music-player:hover {
+      transform: translateY(-3px);
+    }
+
+    .music-toggle {
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 50%;
+      color: white;
+      background: linear-gradient(135deg, #3cb7ff, #1768d9);
+      box-shadow: 0 8px 22px rgba(30, 128, 230, 0.35);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .play-icon {
+      display: inline-block;
+      transform: translateX(1px);
+    }
+
+    .music-bars {
+      display: none;
+      height: 20px;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .music-bars span {
+      width: 3px;
+      height: 30%;
+      border-radius: 99px;
+      background: white;
+      animation: music-bar 0.8s ease-in-out infinite alternate;
+    }
+
+    .music-bars span:nth-child(2) { animation-delay: -0.35s; }
+    .music-bars span:nth-child(3) { animation-delay: -0.15s; }
+    .music-bars span:nth-child(4) { animation-delay: -0.5s; }
+
+    .music-player.playing .play-icon {
+      display: none;
+    }
+
+    .music-player.playing .music-bars {
+      display: flex;
+    }
+
+    .music-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .music-info strong,
+    .music-info span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .music-info strong {
+      font-size: 0.82rem;
+    }
+
+    .music-info span {
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    .music-progress {
+      width: 100%;
+      height: 3px;
+      margin-top: 7px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .music-progress span {
+      width: 0;
+      height: 100%;
+      background: var(--blue);
+      transition: width 0.2s linear;
+    }
+
+    .music-link {
+      flex: 0 0 auto;
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: var(--blue-bright);
+      font-size: 0.68rem;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-card.reveal {
+      transform: translateY(32px) rotate(var(--card-rotate)) scale(0.97);
+    }
+
+    .gallery-card.reveal.visible {
+      transform: rotate(var(--card-rotate)) scale(1);
+    }
+
+    .gallery-card.reveal.visible:hover {
+      transform: translateY(-9px) rotate(0deg) scale(1.015);
+    }
+
+    @keyframes hero-zoom {
+      from { transform: scale(1.13) translateY(var(--hero-shift)); }
+      to { transform: scale(1.06) translateY(var(--hero-shift)); }
+    }
+
+    @keyframes title-shine {
+      to { background-position: 200% center; }
+    }
+
+    @keyframes cinematic-in {
+      from { opacity: 0; filter: blur(10px); transform: translateY(28px); }
+      to { opacity: 1; filter: blur(0); transform: translateY(0); }
+    }
+
+    @keyframes cinematic-in-rotated {
+      from { opacity: 0; filter: blur(10px); transform: translateY(25px) rotate(-2deg); }
+      to { opacity: 1; filter: blur(0); transform: translateY(0) rotate(-2deg); }
+    }
+
+    @keyframes teacher-arrive {
+      from { opacity: 0; filter: blur(12px); transform: translateY(34px) scale(0.94); }
+      to { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+    }
+
+    @keyframes float-light {
+      0% { opacity: 0; transform: translate3d(0, 35px, 0) scale(0.7); }
+      25% { opacity: 0.75; }
+      70% { opacity: 0.35; }
+      100% { opacity: 0; transform: translate3d(24px, -95px, 0) scale(1.35); }
+    }
+
+    @keyframes music-bar {
+      from { height: 25%; }
+      to { height: 100%; }
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        min-height: auto;
+        padding-bottom: 118px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr 330px;
+        gap: 34px;
+      }
+
+      .values {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .value-item:nth-child(3) {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .value-item:nth-child(4) {
+        border-top: 1px solid var(--line);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .story-grid {
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, 620px);
+      }
+
+      .nav {
+        min-height: 72px;
+      }
+
+      .brand {
+        font-size: 0.9rem;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 72px 14px auto;
+        display: grid;
+        gap: 0;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(5, 20, 35, 0.98);
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-12px);
+        transition: 0.2s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 13px 14px;
+        border-radius: 10px;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: rgba(77, 181, 255, 0.12);
+      }
+
+      .hero {
+        padding: 120px 0 110px;
+      }
+
+      .hero::before {
+        background-position: 52% center;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(180deg, rgba(3, 15, 27, 0.74), rgba(3, 17, 29, 0.9) 55%, #071a2d 100%);
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .teacher-card {
+        max-width: 420px;
+        margin: 64px auto 0;
+      }
+
+      .values-wrap {
+        margin-top: -55px;
+      }
+
+      .value-item {
+        padding: 16px;
+      }
+
+      .gallery-card figure {
+        height: 230px;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-collage {
+        min-height: 400px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-item,
+      .footer-item:first-child,
+      .footer-item:last-child {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer-item + .footer-item {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .music-player {
+        right: 14px;
+        bottom: 14px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 {
+        font-size: clamp(6rem, 33vw, 8rem);
+      }
+
+      .school-name {
+        font-size: 2rem;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .value-item + .value-item,
+      .value-item:nth-child(3) {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card figure {
+        height: 245px;
+      }
+
+      .story-collage {
+        min-height: 330px;
+      }
+
+      .story-collage img:first-child {
+        width: 82%;
+        height: 265px;
+      }
+
+      .story-collage img:last-child {
+        width: 62%;
+        height: 190px;
+      }
+
+      .music-player {
+        gap: 9px;
+        padding: 9px;
+      }
+
+      .music-toggle {
+        flex-basis: 44px;
+        width: 44px;
+        height: 44px;
+      }
+
+      .music-link {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+
+      .memory-quote .word {
+        opacity: 1;
+        filter: none;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Navigasi utama">
+      <a class="brand" href="#beranda">
+        <img src="assets/images/school-logo.png" alt="Logo SMAN 1 Jasinga">
+        <div>
+          X-4 SMAN 1 JASINGA
+          <span>Kebersamaan Tak Terlupakan</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a class="active" href="#beranda">Beranda</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kenangan">Kenangan</a></li>
+        <li><a href="#pesan">Pesan</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-glow" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+      <div class="hero-grid container">
+        <div class="hero-content reveal">
+          <p class="eyebrow">KELAS</p>
+          <h1><span>X-4</span></h1>
+          <p class="school-name">SMAN 1 Jasinga</p>
+          <p class="hero-copy">Bukan hanya sekadar kelas,<br>tapi keluarga yang Allah pertemukan.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#galeri"><span aria-hidden="true">▣</span> Lihat Kenangan</a>
+            <a class="button button-secondary" href="#tentang"><span aria-hidden="true">♥</span> Tentang Kelas</a>
+          </div>
+        </div>
+
+        <article class="teacher-card reveal">
+          <img class="teacher-photo" src="assets/images/homeroom-teacher.jpg" alt="Saeful Bahri, wali kelas X-4">
+          <div class="teacher-label">Wali Kelas</div>
+          <h2>Saeful Bahri</h2>
+          <p>“Teruslah belajar, berproses, dan menjadi pribadi terbaik. Saya bangga menjadi bagian dari perjalanan kalian.”</p>
+          <div class="quote-mark" aria-hidden="true">”</div>
+          <div class="quote-line"></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="values-wrap container" id="tentang">
+      <div class="values reveal">
+        <div class="value-item">
+          <div class="value-icon" aria-hidden="true">♟</div>
+          <div><strong>Keluarga</strong><span>Bersama dalam suka maupun duka</span></div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon" aria-hidden="true">★</div>
+          <div><strong>Kenangan</strong><span>Setiap momen adalah cerita berharga</span></div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon" aria-hidden="true">◆</div>
+          <div><strong>Perjuangan</strong><span>Belajar, tumbuh, dan meraih mimpi</span></div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon" aria-hidden="true">♥</div>
+          <div><strong>Kebersamaan</strong><span>Hari ini, esok, dan selamanya</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="galeri">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Galeri Kenangan</p>
+          <h2>Momen yang Tak Terlupakan</h2>
+          <div class="heading-rule" aria-hidden="true">★</div>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-card reveal" tabindex="0" data-full="assets/images/class-sports.jpeg" data-caption="Kebersamaan di Hari Biasa">
+            <figure><img src="assets/images/class-sports.jpeg" alt="Siswa kelas X-4 saat kegiatan olahraga" loading="lazy"></figure>
+            <figcaption><span class="caption-icon">●</span> Kebersamaan di Hari Biasa</figcaption>
+          </article>
+          <article class="gallery-card reveal" tabindex="0" data-full="assets/images/class-main-1.jpeg" data-caption="Foto Kelas X-4">
+            <figure><img src="assets/images/class-main-1.jpeg" alt="Foto bersama kelas X-4 di depan sekolah" loading="lazy"></figure>
+            <figcaption><span class="caption-icon">♟</span> Foto Kelas X-4</figcaption>
+          </article>
+          <article class="gallery-card reveal" tabindex="0" data-full="assets/images/school-activity.jpeg" data-caption="Kegiatan Sekolah">
+            <figure><img src="assets/images/school-activity.jpeg" alt="Kegiatan siswa di panggung sekolah" loading="lazy"></figure>
+            <figcaption><span class="caption-icon">◆</span> Kegiatan Sekolah</figcaption>
+          </article>
+          <article class="gallery-card reveal" tabindex="0" data-full="assets/images/with-homeroom.jpeg" data-caption="Momen Bersama Wali Kelas">
+            <figure><img src="assets/images/with-homeroom.jpeg" alt="Momen siswa bersama wali kelas" loading="lazy"></figure>
+            <figcaption><span class="caption-icon">♥</span> Momen Bersama Wali Kelas</figcaption>
+          </article>
+          <article class="gallery-card reveal" tabindex="0" data-full="assets/images/teachers-day.jpeg" data-caption="Hari Guru yang Spesial">
+            <figure><img src="assets/images/teachers-day.jpeg" alt="Perayaan Hari Guru bersama kelas X-4" loading="lazy"></figure>
+            <figcaption><span class="caption-icon">✦</span> Hari Guru yang Spesial</figcaption>
+          </article>
+          <article class="gallery-card reveal" tabindex="0" data-full="assets/images/class-main-3.jpeg" data-caption="Kenangan Indah">
+            <figure><img src="assets/images/class-main-3.jpeg" alt="Potret lengkap kelas X-4" loading="lazy"></figure>
+            <figcaption><span class="caption-icon">●</span> Kenangan Indah</figcaption>
+          </article>
+          <article class="gallery-card reveal" tabindex="0" data-full="assets/images/traditional-day.jpeg" data-caption="Hari Berbusana Tradisional">
+            <figure><img src="assets/images/traditional-day.jpeg" alt="Kelas X-4 mengenakan busana tradisional" loading="lazy"></figure>
+            <figcaption><span class="caption-icon">✦</span> Hari Berbusana Tradisional</figcaption>
+          </article>
+          <article class="gallery-card reveal" tabindex="0" data-full="assets/images/rainy-day.jpeg" data-caption="Tetap Bersama di Hari Hujan">
+            <figure><img src="assets/images/rainy-day.jpeg" alt="Foto kelas di lapangan setelah hujan" loading="lazy"></figure>
+            <figcaption><span class="caption-icon">◆</span> Tetap Bersama di Hari Hujan</figcaption>
+          </article>
+          <article class="gallery-card reveal" tabindex="0" data-full="assets/images/class-moment.jpeg" data-caption="Satu Kelas, Banyak Cerita">
+            <figure><img src="assets/images/class-moment.jpeg" alt="Momen santai bersama kelas X-4" loading="lazy"></figure>
+            <figcaption><span class="caption-icon">♥</span> Satu Kelas, Banyak Cerita</figcaption>
+          </article>
+        </div>
+
+        <p class="memory-quote reveal" id="kenangan">
+          Terima kasih atas setiap tawa, setiap perjuangan, dan setiap kenangan. Semoga kita semua sukses di jalan masing-masing dan tidak melupakan cerita indah di kelas X-4 SMAN 1 Jasinga.
+        </p>
+      </div>
+    </section>
+
+    <section class="section story" id="pesan">
+      <div class="story-grid container">
+        <div class="story-collage reveal">
+          <img src="assets/images/class-main-2.jpeg" alt="Foto keluarga besar kelas X-4" loading="lazy">
+          <img src="assets/images/teachers-day.jpeg" alt="Kenangan perayaan Hari Guru" loading="lazy">
+        </div>
+        <div class="story-copy reveal">
+          <p class="section-kicker">Sebuah Pesan</p>
+          <h2>Kita Pernah Berada di Cerita yang Sama</h2>
+          <p>Mungkin nanti langkah kita menuju arah yang berbeda. Namun, suara tawa di kelas, tugas yang dikerjakan bersama, dan hari-hari sederhana ini akan selalu menjadi bagian dari perjalanan kita.</p>
+          <p>Jadilah versi terbaik dari diri masing-masing. Bawa nama baik keluarga, sekolah, dan kelas yang pernah menjadi rumah kedua kita.</p>
+          <span class="story-signature">Untuk keluarga X-4</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid container">
+      <div class="footer-item">
+        <img src="assets/images/school-logo.png" alt="">
+        <div><strong>X-4 SMAN 1 Jasinga</strong>Angkatan 2026</div>
+      </div>
+      <div class="footer-item">
+        <span class="footer-symbol" aria-hidden="true">♥</span>
+        <span>Dibuat dengan cinta untuk<br>keluarga X-4</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-symbol" aria-hidden="true">▣</span>
+        <span>Kenangan hari ini adalah<br>cerita esok hari.</span>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="music-player" aria-label="Pemutar musik">
+    <button class="music-toggle" id="music-toggle" type="button" aria-label="Putar lagu" aria-pressed="false">
+      <span class="play-icon" aria-hidden="true">▶</span>
+      <span class="music-bars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </span>
+    </button>
+    <div class="music-info">
+      <strong>You're Gonna Live Forever in Me</strong>
+      <span>John Mayer · Preview resmi</span>
+      <div class="music-progress" aria-hidden="true"><span id="music-progress"></span></div>
+    </div>
+    <a class="music-link" href="https://music.apple.com/us/album/youre-gonna-live-forever-in-me/1224352796?i=1224353524&amp;uo=4" target="_blank" rel="noopener noreferrer">Lagu<br>lengkap</a>
+    <audio id="background-music" preload="none">
+      <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/b8/16/b4/b816b438-5cf7-c7ae-cccd-b45dff49fb86/mzaf_3575220220233918232.plus.aac.p.m4a" type="audio/mp4">
+    </audio>
+  </aside>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau foto">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Tutup foto">&times;</button>
+    <div>
+      <img id="lightbox-image" src="" alt="">
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script>
+    const header = document.getElementById("site-header");
+    const menuButton = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxClose = document.getElementById("lightbox-close");
+    const music = document.getElementById("background-music");
+    const musicToggle = document.getElementById("music-toggle");
+    const musicProgress = document.getElementById("music-progress");
+    const musicPlayer = document.querySelector(".music-player");
+    const hero = document.querySelector(".hero");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const closeMenu = () => {
+      navLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false");
+    };
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      document.body.classList.toggle("menu-open", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    const updateHeader = () => {
+      header.classList.toggle("scrolled", window.scrollY > 24);
+    };
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+
+    if (!reducedMotion) {
+      let parallaxFrame;
+      const updateParallax = () => {
+        const shift = Math.min(window.scrollY * 0.12, 70);
+        hero.style.setProperty("--hero-shift", `${shift}px`);
+        parallaxFrame = null;
+      };
+
+      window.addEventListener("scroll", () => {
+        if (!parallaxFrame) parallaxFrame = requestAnimationFrame(updateParallax);
+      }, { passive: true });
+    }
+
+    const sections = document.querySelectorAll("main [id]");
+    const navigationItems = navLinks.querySelectorAll("a");
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navigationItems.forEach((item) => {
+          item.classList.toggle("active", item.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-35% 0px -55%", threshold: 0 });
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          if (entry.target.classList.contains("gallery-card")) {
+            window.setTimeout(() => {
+              entry.target.style.transitionDelay = "0ms";
+            }, 850);
+          }
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".gallery-card").forEach((card, index) => {
+      card.style.transitionDelay = `${(index % 3) * 110}ms`;
+    });
+    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+    const memoryQuote = document.querySelector(".memory-quote");
+    const quoteWords = memoryQuote.textContent.trim().split(/\s+/);
+    memoryQuote.textContent = "";
+    quoteWords.forEach((word, index) => {
+      const span = document.createElement("span");
+      span.className = "word";
+      span.style.setProperty("--word-index", index);
+      span.textContent = word;
+      memoryQuote.appendChild(span);
+    });
+
+    const openLightbox = (card) => {
+      lightboxImage.src = card.dataset.full;
+      lightboxImage.alt = card.querySelector("img").alt;
+      lightboxCaption.textContent = card.dataset.caption;
+      lightbox.classList.add("open");
+      document.body.classList.add("lightbox-open");
+      lightboxClose.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("open");
+      document.body.classList.remove("lightbox-open");
+      lightboxImage.src = "";
+    };
+
+    document.querySelectorAll(".gallery-card").forEach((card) => {
+      card.addEventListener("click", () => openLightbox(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(card);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+        closeLightbox();
+      }
+    });
+
+    const updateMusicButton = () => {
+      const isPlaying = !music.paused;
+      musicPlayer.classList.toggle("playing", isPlaying);
+      musicToggle.setAttribute("aria-label", isPlaying ? "Jeda lagu" : "Putar lagu");
+      musicToggle.setAttribute("aria-pressed", String(isPlaying));
+    };
+
+    musicToggle.addEventListener("click", async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+        } catch {
+          musicToggle.setAttribute("aria-label", "Audio tidak dapat diputar");
+        }
+      } else {
+        music.pause();
+      }
+      updateMusicButton();
+    });
+
+    music.addEventListener("play", updateMusicButton);
+    music.addEventListener("pause", updateMusicButton);
+    music.addEventListener("ended", updateMusicButton);
+    music.addEventListener("timeupdate", () => {
+      const progress = music.duration ? (music.currentTime / music.duration) * 100 : 0;
+      musicProgress.style.width = `${progress}%`;
+    });
+  </script>
+</body>
+</html>
